@@ -3,6 +3,7 @@ import userSchema from "./userSchema";
 import chatSchema from "./chatSchema";
 
 namespace database {
+    // function to establish database connection
     export const connect = async () => {
         const mongoURI = process.env.MONGO_URI;
         if (!mongoURI) {
@@ -17,8 +18,8 @@ namespace database {
     
     }
 
-    export const user = userSchema;
-    export const chat = chatSchema;
+    export const user = userSchema; // instance of userSchema
+    export const chat = chatSchema; // instance of chatSchema
 }
 
 export default database;
