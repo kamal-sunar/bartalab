@@ -5,11 +5,12 @@ namespace interfaces {
         id          : string,
         name        : string,
         email       : string,
+        chatid      : string, // "requester_id+requested_id in any order"
     }
 
     export interface friend_requests {
-        from        : {id: string, name: string},
-        to          : {id: string, name: string},
+        from        : friend,
+        to          : friend,
         accepted    : boolean
     }
 
@@ -19,7 +20,8 @@ namespace interfaces {
         birthdate   : string,
         gender      : string,
         password    : string,
-        friends     : [],
+        friends     : friend[],
+        requests    : friend_requests[]
     }
 
     export interface user_document extends Document, user {}
@@ -28,10 +30,13 @@ namespace interfaces {
         value       : string,
         date        : string,
         sender      : string, // sender id
+        receiver    : string,
+        read        : boolean,
     }
 
     export interface chat {
-        texts       : text[]
+        texts       : text[],
+        chatid      : string,
     }
 
     export interface chat_document extends Document, chat {}

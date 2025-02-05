@@ -1,5 +1,6 @@
 import mongoose, {ConnectOptions} from "mongoose"
 import userSchema from "./userSchema";
+import chatSchema from "./chatSchema";
 
 namespace database {
     export const connect = async () => {
@@ -17,6 +18,7 @@ namespace database {
     }
 
     export const user = userSchema;
+    export const chat = chatSchema;
 }
 
 export default database;
